@@ -3,9 +3,7 @@
     <RootHeader></RootHeader> // RootHeader
 
     <div class="container">
-      <header class="page-header row">
-        <h1>Olá</h1>
-      </header>
+      <router-view></router-view>
     </div>
 
   </div>
