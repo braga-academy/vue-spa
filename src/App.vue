@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <RootHeader></RootHeader> // RootHeader
+
+    <div class="container">
+      <header class="page-header row">
+        <h1>Olá</h1>
+      </header>
+    </div>
+
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import RootHeader from './components/root/Header'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    RootHeader
   }
 }
 </script>
