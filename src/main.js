@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Index from './Index'
+import App from './app/Main.vue'
 import router from './router'
 import store from './vuex'
 
@@ -10,5 +10,5 @@ new Vue({
   router,
   store,
   el: '#app',
-  render: h => h(Index)
+  render: h => h(App)
 })
