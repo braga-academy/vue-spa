@@ -1,20 +1,36 @@
 <template>
   <ul class="nav navbar-nav navbar-right">
-    <li><a href="#">Link</a></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+    <router-link :to="{ name: 'auth' }" tag="li" exact v-if="!isLogged">
+      <a>Entrar</a>
+    </router-link>
+    <li class="dropdown" :class="{ open: isOpenUser }" v-if="isLogged">
+      <a href="javascript:;" @click="toggleMenu" class="dropdown-toggle">{{ currentUser.name }} <span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
+        <li><a href="javascript:;">Action</a></li>
+        <li><a href="javascript:;">Another action</a></li>
+        <li><a href="javascript:;">Something else here</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
+        <li><a href="javascript:;">Separated link</a></li>
       </ul>
     </li>
   </ul>
 </template>
 <script>
-export default {
+import { mapGetters } from 'vuex'
 
+export default {
+  data () {
+    return {
+      isOpenUser: false
+    }
+  },
+  computed: {
+    ...mapGetters(['isLogged', 'currentUser'])
+  },
+  methods: {
+    toggleMenu () {
+      this.isOpenUser = !this.isOpenUser
+    }
+  }
 }
 </script>
